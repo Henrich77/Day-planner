@@ -1,3 +1,8 @@
+var timeEl = $('#time-display');
+
+
+
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -21,3 +26,10 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+function displayTime() {
+  var time = dayjs().format(`[Date:]	MMM D, YYYY ⏱️h:mm A`);
+  timeEl.text(time);
+}
+
+displayTime()
