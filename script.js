@@ -1,4 +1,15 @@
-var timeEl = $('#time-display');
+var dateEl = $('#date-display');
+var timeEL = $('#time-display');
+var button = $(`#button`)
+// function readProjectsFromStorage() {
+//   var events = localStorage.getItem('events');
+//   if (events) {
+//     events = JSON.parse(events);
+//   } else {
+//     events = [];
+//   }
+//   return events;
+// }
 
 
 
@@ -7,6 +18,28 @@ var timeEl = $('#time-display');
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+
+  button.on('click', function () {
+  console.log('you clicked me')
+  localStorage.setItem('events','txt');
+  
+  // function readTxt() {
+  // var text = localStorage.getItem('events');
+  // if (events) {
+  //   text= JSON.parse(events);
+  // } else {
+  //   events = [];
+  // }
+  // return events;
+// }
+  });
+
+
+
+
+
+
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -25,11 +58,26 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
+
+  $('#hour-9 .time-block').val(localStorage.getItem('hour-9'));
+  $('#hour-10 .time-block').val(localStorage.getItem('hour-10'));
+  $('#hour-11 .time-block').val(localStorage.getItem('hour-11'));
+  $('#hour-12 .time-block').val(localStorage.getItem('hour-12'));
+  $('#hour-13 .time-block').val(localStorage.getItem('hour-13'));
+  $('#hour-14 .time-block').val(localStorage.getItem('hour-14'));
+  $('#hour-15 .time-block').val(localStorage.getItem('hour-15'));
+  $('#hour-16 .time-block').val(localStorage.getItem('hour-16'));
+  $('#hour-17 .time-block').val(localStorage.getItem('hour-17'));
+
+  
 });
 
 function displayTime() {
-  var time = dayjs().format(`[Date:]	MMM D, YYYY ⏱️h:mm A`);
-  timeEl.text(time);
+  var date = dayjs().format(`[Date:]	dddd, MMMM D, YYYY`);
+  var time = dayjs().format(` [Time:]  h:mm A`)
+  dateEl.text(date);
+  timeEL.text(time)
 }
+
 
 displayTime()
