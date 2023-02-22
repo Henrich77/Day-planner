@@ -1,6 +1,6 @@
 var dateEl = $('#date-display');
 var timeEL = $('#time-display');
-var button = $(`#button`)
+var button = $(`.buttonz`)
 // function readProjectsFromStorage() {
 //   var events = localStorage.getItem('events');
 //   if (events) {
@@ -21,7 +21,12 @@ $(function () {
 
   button.on('click', function () {
   console.log('you clicked me')
-  localStorage.setItem('events','txt');
+  console.log(this);
+  var clock = $(this).parent().attr('id')
+  var text = $(this).siblings('#textArea').val();
+  localStorage.setItem(clock, text)
+
+  
   
   // function readTxt() {
   // var text = localStorage.getItem('events');
@@ -59,15 +64,15 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 
-  $('#hour-9 .time-block').val(localStorage.getItem('hour-9'));
-  $('#hour-10 .time-block').val(localStorage.getItem('hour-10'));
-  $('#hour-11 .time-block').val(localStorage.getItem('hour-11'));
-  $('#hour-12 .time-block').val(localStorage.getItem('hour-12'));
-  $('#hour-13 .time-block').val(localStorage.getItem('hour-13'));
-  $('#hour-14 .time-block').val(localStorage.getItem('hour-14'));
-  $('#hour-15 .time-block').val(localStorage.getItem('hour-15'));
-  $('#hour-16 .time-block').val(localStorage.getItem('hour-16'));
-  $('#hour-17 .time-block').val(localStorage.getItem('hour-17'));
+  $('#hour-9 #textArea').val(localStorage.getItem('hour-9'));
+  $('#hour-10 #textArea').val(localStorage.getItem('hour-10'));
+  $('#hour-11 #textArea').val(localStorage.getItem('hour-11'));
+  $('#hour-12 #textArea').val(localStorage.getItem('hour-12'));
+  $('#hour-13 #textArea').val(localStorage.getItem('hour-13'));
+  $('#hour-14 #textArea').val(localStorage.getItem('hour-14'));
+  $('#hour-15 #textArea').val(localStorage.getItem('hour-15'));
+  $('#hour-16 #textArea').val(localStorage.getItem('hour-16'));
+  $('#hour-17 #textArea').val(localStorage.getItem('hour-17'));
 
   
 });
@@ -78,6 +83,7 @@ function displayTime() {
   dateEl.text(date);
   timeEL.text(time)
 }
+
 
 
 displayTime()
